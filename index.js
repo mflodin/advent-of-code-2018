@@ -1,5 +1,6 @@
-import { frequencyAdder } from "./1a";
+import { frequencyAdder, frequencyRepeater } from "./1";
 import fs from "fs";
 
-const input = fs.readFileSync("input/1a.txt", "utf8");
-console.log(frequencyAdder(input));
+const input = fs.readFileSync("input/1.txt", "utf8");
+console.log("A: ", frequencyAdder(input));
+console.log("B: ", frequencyRepeater(input));
