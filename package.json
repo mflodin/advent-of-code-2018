@@ -1,0 +1,34 @@
+{
+  "name": "advent-of-code-2018",
+  "version": "1.0.0",
+  "description": "Solutions to the Advent of Code 2018 puzzles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mflodin/advent-of-code-2018.git"
+  },
+  "keywords": [
+    "puzzle",
+    "code"
+  ],
+  "author": "Martin Flodin <mflodin@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mflodin/advent-of-code-2018/issues"
+  },
+  "homepage": "https://github.com/mflodin/advent-of-code-2018#readme",
+  "dependencies": {
+    "jest": "^23.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "regenerator-runtime": "^0.13.1"
+  }
+}
