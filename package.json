@@ -4,7 +4,7 @@
   "description": "Solutions to the Advent of Code 2018 puzzles.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "start": "babel-node index.js"
   },
   "repository": {

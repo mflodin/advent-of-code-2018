@@ -4,5 +4,5 @@ module.exports = {
   transform: {
     "^.+\\.jsx?$": "babel-jest"
   },
-  testMatch: ["2.test.js"]
+  testMatch: ["3.test.js"]
 };
