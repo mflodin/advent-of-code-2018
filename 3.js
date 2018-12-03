@@ -21,9 +21,33 @@ function parseClaim(input) {
 }
 
 export function overlap(fabric) {
-  return flatten(fabric).filter(p => p && p.length > 1).length;
+  return flatten(fabric).filter(p => p && p.length > 1);
 }
 
 function flatten(arr) {
   return [].concat(...arr);
+}
+
+export function nonOverlapping(fabric) {
+  const overlapping = unique(flatten(overlap(fabric)));
+  //   return overlapping;
+  const candidates = flatten(fabric)
+    .filter(p => p && p.length === 1)
+    .reduce((acc, curr) => {
+      if (!acc.includes(curr[0])) {
+        acc.push(curr[0]);
+      }
+      return acc;
+    });
+
+  return candidates.filter(candidate => !overlapping.includes(candidate));
+}
+
+export function unique(arr) {
+  return arr.reduce((acc, curr) => {
+    if (!acc.includes(curr)) {
+      acc.push(curr);
+    }
+    return acc;
+  }, []);
 }

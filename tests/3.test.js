@@ -1,4 +1,4 @@
-import { claimFabric, overlap } from "../3";
+import { claimFabric, overlap, nonOverlapping, unique } from "../3";
 
 test("it claims its part of the fabric", () => {
   let fabric = claimFabric("#123 @ 3,2: 5x4");
@@ -71,5 +71,22 @@ test("it counts the number of overlapping squares", () => {
   fabric = claimFabric("#2 @ 3,1: 4x4", fabric);
   fabric = claimFabric("#3 @ 5,5: 2x2", fabric);
 
-  expect(overlap(fabric)).toBe(4);
+  expect(overlap(fabric).length).toBe(4);
+});
+
+test("it finds the non overlapping claims", () => {
+  let fabric = claimFabric("#1 @ 1,3: 4x4");
+  fabric = claimFabric("#2 @ 3,1: 4x4", fabric);
+  fabric = claimFabric("#3 @ 5,5: 2x2", fabric);
+
+  expect(nonOverlapping(fabric)).toEqual(["3"]);
+});
+
+test("unique filters out all duplicates", () => {
+  expect(unique(["1", "2", "3", "123", "2", "3"])).toEqual([
+    "1",
+    "2",
+    "3",
+    "123"
+  ]);
 });
