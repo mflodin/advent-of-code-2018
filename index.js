@@ -1,12 +1,16 @@
 import fs from "fs";
 
-import { claimFabric, overlap, nonOverlapping } from "./3";
+import { parseGuards, findSleepyGuard, findSleepyMinute } from "./4";
 
-const input = fs.readFileSync("input/3.txt", "utf8");
-const rows = input.split("\n").filter(l => l);
-let fabric;
+const input = fs.readFileSync("input/4.txt", "utf8");
+const guards = parseGuards(input);
 
-rows.forEach(row => (fabric = claimFabric(row, fabric)));
+const sleepyGuard = findSleepyGuard(guards);
+const sleepyMinute = findSleepyMinute(sleepyGuard, guards);
 
-console.log("A: ", overlap(fabric).length);
-console.log("B: ", nonOverlapping(fabric));
+console.log(
+  "A: ",
+  sleepyGuard,
+  sleepyMinute,
+  Number(sleepyGuard) * sleepyMinute
+);
