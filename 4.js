@@ -71,5 +71,15 @@ export function findSleepyMinute(guardId, input) {
     }
   }
 
-  return candidate;
+  return { minute: candidate, sleep: maxSleep };
+}
+
+export function findSleepiestMinute(guards) {
+  return Object.keys(guards)
+    .map((guardId) => {
+      return { ...findSleepyMinute(guardId, guards), guardId };
+    })
+    .reduce((acc, curr) => {
+      return acc.sleep > curr.sleep ? acc : curr;
+    });
 }

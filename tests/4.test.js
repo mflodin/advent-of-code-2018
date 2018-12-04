@@ -1,4 +1,9 @@
-import { parseGuards, findSleepyGuard, findSleepyMinute } from "../4";
+import {
+  parseGuards,
+  findSleepyGuard,
+  findSleepyMinute,
+  findSleepiestMinute
+} from "../4";
 
 const input = `[1518-11-01 00:00] Guard #10 begins shift
 [1518-11-01 00:05] falls asleep
@@ -57,6 +62,13 @@ test("findSleepyGuard should find the sleepiest guard", () => {
 });
 
 test("findSleepyMinute should find the sleepiest minute for each guard", () => {
-  expect(findSleepyMinute("10", parseGuards(input))).toBe(24);
-  expect(findSleepyMinute("99", parseGuards(input))).toBe(45);
+  expect(findSleepyMinute("10", parseGuards(input)).minute).toBe(24);
+  expect(findSleepyMinute("99", parseGuards(input)).minute).toBe(45);
+});
+
+test("findSleepiestMinute should find the sleepiest minute for all guards", () => {
+  const sleepiestMinute = findSleepiestMinute(parseGuards(input));
+  expect(sleepiestMinute.minute).toBe(45);
+  expect(sleepiestMinute.sleep).toBe(3);
+  expect(sleepiestMinute.guardId).toBe("99");
 });
