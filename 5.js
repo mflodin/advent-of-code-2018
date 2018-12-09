@@ -69,3 +69,19 @@ export function scanner(polymer) {
 
   return newPolymer;
 }
+
+export function improvedScanner(polymer) {
+  const units = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let shortestLength = polymer.length;
+  let bestCanditate = polymer;
+  Array.from(units).forEach(unit => {
+    let candidate = polymer.replace(new RegExp(unit, "ig"), "");
+    candidate = scanner(candidate);
+
+    if (candidate.length < shortestLength) {
+      bestCanditate = candidate;
+      shortestLength = candidate.length;
+    }
+  });
+  return bestCanditate;
+}

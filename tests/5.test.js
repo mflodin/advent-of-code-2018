@@ -1,4 +1,4 @@
-import { scanner } from "../5";
+import { scanner, improvedScanner } from "../5";
 
 test("scanner should remove units of opposite polarity", () => {
   expect(scanner("aA")).toBe("");
@@ -7,4 +7,8 @@ test("scanner should remove units of opposite polarity", () => {
   expect(scanner("aabAAB")).toBe("aabAAB");
   expect(scanner("dabAcCaCBAcCcaDA")).toBe("dabCBAcaDA");
   expect(scanner("aaaAAA")).toBe("");
+});
+
+test("improvedScanner should find the shortest possible polymer when removing a unit type", () => {
+  expect(improvedScanner("dabAcCaCBAcCcaDA")).toBe("daDA");
 });
