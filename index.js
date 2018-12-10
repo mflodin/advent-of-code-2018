@@ -1,11 +1,8 @@
 import fs from "fs";
 
-import { scanner, improvedScanner } from "./5";
+import { findLargestArea, findAreaWithDistanceLessThan } from "./6";
 
-const input = fs.readFileSync("input/5.txt", "utf8");
-const result = scanner(input);
+const input = fs.readFileSync("input/6.txt", "utf8");
 
-console.log("A: ", result, result.length);
-
-const resultB = improvedScanner(input);
-console.log("B:", resultB, resultB.length);
+console.log("A: ", findLargestArea(input));
+console.log("B: ", findAreaWithDistanceLessThan(10000, input));
