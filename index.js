@@ -1,8 +1,9 @@
 import fs from "fs";
 
-import { order, timer } from "./7";
+import { treeParser, metadataSum, nodeValue } from "./8";
 
-const input = fs.readFileSync("input/7.txt", "utf8");
+const input = fs.readFileSync("input/8.txt", "utf8");
 
-console.log("A: ", order(input));
-console.log("B: ", timer({ numberOfWorkers: 5, delay: 60, input }));
+const tree = treeParser(input);
+console.log("A: ", metadataSum(tree));
+console.log("B: ", nodeValue(tree));
