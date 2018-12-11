@@ -1,8 +1,8 @@
 import fs from "fs";
 
-import { findLargestArea, findAreaWithDistanceLessThan } from "./6";
+import { order, timer } from "./7";
 
-const input = fs.readFileSync("input/6.txt", "utf8");
+const input = fs.readFileSync("input/7.txt", "utf8");
 
-console.log("A: ", findLargestArea(input));
-console.log("B: ", findAreaWithDistanceLessThan(10000, input));
+console.log("A: ", order(input));
+console.log("B: ", timer({ numberOfWorkers: 5, delay: 60, input }));

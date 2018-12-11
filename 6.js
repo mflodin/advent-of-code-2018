@@ -1,7 +1,4 @@
-function log(...input) {
-  console.log(...input);
-  return input;
-}
+import { log } from "./utils";
 
 export function rowToCoordinate(row) {
   const [_, x, y] = row.match(/(\d+), (\d+)/).map(Number);
