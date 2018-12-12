@@ -1,9 +1,8 @@
-import fs from "fs";
+import fs from 'fs';
 
-import { treeParser, metadataSum, nodeValue } from "./8";
+import { marbleMania, parseInput } from './9';
 
-const input = fs.readFileSync("input/8.txt", "utf8");
+const input = fs.readFileSync('input/9.txt', 'utf8');
+const { numberOfPlayers, lastMarble } = parseInput(input);
 
-const tree = treeParser(input);
-console.log("A: ", metadataSum(tree));
-console.log("B: ", nodeValue(tree));
+console.log('A: ', marbleMania({ numberOfPlayers, lastMarble }));
