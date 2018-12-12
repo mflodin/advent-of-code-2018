@@ -1,10 +1,10 @@
-import { log } from "./utils";
+import { log } from './utils';
 
 let index;
 
 export function treeParser(input) {
   index = 0;
-  const entries = input.split(" ").map(Number);
+  const entries = input.split(' ').map(Number);
 
   return parser(entries);
 }
@@ -25,21 +25,16 @@ export function nodeValue(tree) {
     return metadataSum(tree);
   }
 
-  return tree.metadata.reduce(
-    (acc, curr) => {
-      let child = tree.children[curr - 1];
-      return acc + nodeValue(child);
-    },
-
-    0
-  );
+  return tree.metadata.reduce((acc, curr) => {
+    let child = tree.children[curr - 1];
+    return acc + nodeValue(child);
+  }, 0);
 }
 
 function parser(entries) {
   let tree = { children: [], metadata: [] };
   const numberOfChildren = entries[index++];
   const numberOfMetadata = entries[index++];
-  // log({ entries, numberOfChildren, numberOfMetadata });
   for (let i = 0; i < numberOfChildren; i++) {
     tree.children[i] = parser(entries);
   }
